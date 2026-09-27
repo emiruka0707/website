@@ -1,0 +1,819 @@
+@charset "UTF-8";
+
+/* ==========================================
+   共通設定・ベース
+   ========================================== */
+body {
+    font-family: "Shippori Mincho", "Tenor Sans", serif;
+    background-color: #f7f5f0; /* カンプに合わせた落ち着いた背景色 */
+    color: #333333;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 筆記体フォント用クラス */
+.alex {
+    font-family: 'Alex Brush', cursive;
+}
+
+/* 見出し共通スタイル */
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    letter-spacing: 0.1em;
+}
+
+section {
+    padding: 80px 0;
+}
+
+
+/* ==========================================
+   ヘッダー (Header)
+   ========================================== */
+header {
+    background-color: #3f2b23; /* ダークブラウン */
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-logo img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.header-nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+.header-nav a {
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.header-icon img {
+    height: 20px;
+    filter: brightness(100);
+}
+
+
+/* ==========================================
+   ファーストビュー (#home)
+   ========================================== */
+#home {
+    padding: 0;
+}
+
+#firstview {
+    position: relative;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+}
+
+#firstview > img {
+    width: 65%;
+    margin-left: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* 縦書きのキャッチコピー */
+#firstview h1 {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    writing-mode: vertical-rl;
+    font-size: 1.6rem;
+    line-height: 2.2;
+    letter-spacing: 0.2em;
+}
+
+/* 予約ボタン（画像重ね） */
+#firstview a[href="#reserve"] img {
+    position: absolute;
+    right: 5%;
+    bottom: 20%;
+    width: 120px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* 8月の営業案内リンク */
+#firstview a[href="#calendar"] {
+    display: block;
+    text-align: right;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #333;
+    width: fit-content;
+    margin-left: auto;
+    padding-bottom: 2px;
+}
+
+#firstview a[href="#calendar"] span {
+    margin-left: 10px;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+
+/* ==========================================
+   コンセプト (#concept)
+   ========================================== */
+.concept .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.concept-text {
+    flex: 1;
+}
+
+.concept-text h2 {
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+}
+
+.concept-text p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 2;
+}
+
+.concept-text .bold {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.concept-img {
+    flex: 1;
+}
+
+.concept-img img {
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+
+/* ==========================================
+   ご利用案内 (#guide)
+   ========================================== */
+#guide .inner:nth-of-type(1) {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+#guide article img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#guide article h3.alex {
+    font-size: 2.5rem;
+    line-height: 1;
+    display: inline-block;
+}
+
+#guide article p {
+    font-size: 0.85rem;
+}
+
+/* 喫茶店・書店のレイアウト */
+#guide .inner:nth-of-type(2) {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+#guide figure {
+    flex: 1;
+}
+
+#guide figure h3 {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+#guide figure img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+#guide figcaption {
+    font-size: 0.85rem;
+    line-height: 1.9;
+}
+
+
+/* ==========================================
+   お飲み物・お食事 (#menu)
+   ========================================== */
+#menu section {
+    padding: 40px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.grid .box {
+    text-align: center;
+}
+
+.grid .box img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.grid .box p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.text-aside {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+
+/* ==========================================
+   最新刊情報・お知らせ (#news)
+   ========================================== */
+.book-news .book-menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.book-news .box {
+    text-align: center;
+}
+
+.book-news .box img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.book-news .box p {
+    font-size: 0.8rem;
+}
+
+.book-news > a,
+.news > a {
+    display: block;
+    text-align: right;
+    max-width: 800px;
+    margin: 20px auto 0;
+    font-size: 0.85rem;
+}
+
+/* お知らせ一覧 */
+.news-box {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.news-box ul li {
+    display: flex;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.85rem;
+}
+
+.news-box time {
+    color: #888;
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   店舗情報 (#access)
+   ========================================== */
+#access h2 img {
+    display: block;
+    max-width: 1000px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin: 0 auto 50px;
+}
+
+#access .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+
+#access .inner > img {
+    flex: 1;
+    min-width: 300px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#access table {
+    flex: 1;
+    font-size: 0.85rem;
+    border-collapse: collapse;
+}
+
+#access table th,
+#access table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+#access table th {
+    width: 30%;
+    font-weight: normal;
+    color: #666;
+}
+
+#access .inner > a {
+    width: 100%;
+    text-align: right;
+    font-size: 0.85rem;
+    margin-top: -20px;
+}
+
+
+/* ==========================================
+   営業時間カレンダー (#reserve)
+   ========================================== */
+.calendar {
+    text-align: center;
+}
+
+.calendar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.calendar a > img {
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.calendar article {
+    text-align: center;
+}
+
+.calendar article img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.calendar article p {
+    font-size: 0.85rem;
+}
+
+
+/* ==========================================
+   フッター (Footer)
+   ========================================== */
+footer {
+    background-color: #3f2b23;
+    color: #ffffff;
+    padding: 60px 20px 30px;
+    font-size: 0.8rem;
+}
+
+#footer nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.footer-access {
+    max-width: 500px;
+    margin: 0 auto 40px;
+}
+
+.footer-access table {
+    width: 100%;
+}
+
+.footer-access th,
+.footer-access td {
+    padding: 6px 10px;
+    text-align: left;
+}
+
+.footer-access th {
+    font-weight: normal;
+    width: 30%;
+    opacity: 0.8;
+}
+
+.footer-logo,
+.footer-icon {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.footer-icon img {
+    height: 20px;
+    filter: brightness(100);
+}
+
+.copyright {
+    text-align: center;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+/* ==========================================
+   レスポンシブ対応 (画面幅 768px 以下)
+   スマートフォン版デザインカンプに基づく設定
+   ========================================== */
+@media screen and (max-width: 768px) {
+
+    /* --- 全体・共通 --- */
+    body {
+        font-size: 0.85rem;
+        line-height: 1.7;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .inner {
+        padding: 0 16px;
+    }
+
+
+    /* --- ヘッダー --- */
+    header {
+        padding: 12px 16px;
+        align-items: center;
+    }
+
+    /* スマホ版ではヘッダーのテキストナビゲーションを非表示に */
+    .header-nav {
+        display: none;
+    }
+
+    .header-logo img {
+        height: 32px;
+    }
+
+    .header-icon img {
+        height: 18px;
+    }
+
+
+    /* --- ファーストビュー (#home) --- */
+    #firstview {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #firstview > img {
+        width: 100%;
+        height: 60vh;
+        min-height: 400px;
+        object-fit: cover;
+    }
+
+    /* 画像上に重なる縦書きコピー */
+    #firstview h1 {
+        position: absolute;
+        top: 25px;
+        left: 20px;
+        color: #ffffff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        font-size: 1.15rem;
+        line-height: 2;
+        letter-spacing: 0.2em;
+    }
+
+    /* 予約ボタン（画像右下） */
+    #firstview a[href="#reserve"] img {
+        position: absolute;
+        right: 15px;
+        bottom: 50px;
+        width: 65px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    /* 営業案内リンク */
+    #firstview a[href="#calendar"] {
+        display: block;
+        text-align: right;
+        margin: 10px 16px 0 auto;
+        font-size: 0.75rem;
+        padding-bottom: 2px;
+    }
+
+
+    /* --- コンセプト (#concept) --- */
+    .concept .inner {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .concept-text h2 {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .concept-text p {
+        font-size: 0.8rem;
+        line-height: 1.9;
+        margin-bottom: 15px;
+    }
+
+    .concept-text .bold {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    .concept-img {
+        width: 100%;
+    }
+
+    .concept-img img {
+        width: 100%;
+        height: auto;
+    }
+
+
+    /* --- ご利用案内 (#guide) --- */
+    /* 3つのステップ（縦並び・中央揃え） */
+    #guide .inner:nth-of-type(1) {
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    #guide article img {
+        width: 60px;
+        margin-bottom: 8px;
+    }
+
+    #guide article h3.alex {
+        font-size: 2.2rem;
+    }
+
+    #guide article p {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
+
+    /* 喫茶店・書店のレイアウト */
+    #guide .inner:nth-of-type(2) {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    #guide figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #guide figure h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    #guide figure img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+
+    #guide figcaption {
+        font-size: 0.8rem;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+
+    /* --- お飲み物・お食事 (#menu) --- */
+    #menu section {
+        padding: 30px 0;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 12px;
+        max-width: 100%;
+    }
+
+    .grid .box img {
+        border-radius: 8px;
+        margin-bottom: 6px;
+    }
+
+    .grid .box p {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+
+    .text-aside {
+        font-size: 0.75rem;
+        margin-top: 15px;
+    }
+
+
+    /* --- 最新刊情報・お知らせ (#news) --- */
+    .book-news .book-menu {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px 10px;
+    }
+
+    .book-news .box p {
+        font-size: 0.75rem;
+    }
+
+    .book-news > a,
+    .news > a {
+        font-size: 0.75rem;
+        margin-top: 15px;
+    }
+
+    .news-box ul li {
+        flex-direction: column;
+        gap: 4px;
+        padding: 12px 0;
+        font-size: 0.8rem;
+    }
+
+    .news-box time {
+        font-size: 0.75rem;
+    }
+
+
+    /* --- 店舗情報 (#access) --- */
+    #access h2 img {
+        height: 180px;
+        margin-bottom: 30px;
+    }
+
+    #access .inner {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #access .inner > img {
+        width: 100%;
+        min-width: unset;
+    }
+
+    #access table {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    #access table th,
+    #access table td {
+        padding: 10px 5px;
+    }
+
+    #access .inner > a {
+        font-size: 0.75rem;
+        margin-top: -10px;
+    }
+
+
+    /* --- 営業時間カレンダー (#reserve) --- */
+    .calendar a {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .calendar a > img {
+        max-width: 100%;
+        width: 280px;
+    }
+
+    .calendar article img {
+        width: 70px;
+    }
+
+    .calendar article p {
+        font-size: 0.8rem;
+    }
+
+
+    /* --- フッター (Footer) --- */
+    footer {
+        padding: 35px 16px 20px;
+        font-size: 0.75rem;
+    }
+
+    #footer nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 12px;
+        margin-bottom: 30px;
+    }
+
+    #footer nav a {
+        font-size: 0.75rem;
+    }
+
+    .footer-access {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .footer-access th,
+    .footer-access td {
+        padding: 5px 0;
+    }
+
+    .footer-logo img {
+        height: 40px;
+    }
+
+    .footer-icon img {
+        height: 18px;
+    }
+
+    .copyright {
+        font-size: 0.7rem;
+    }
+}

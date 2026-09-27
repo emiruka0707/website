@@ -1,22 +1,314 @@
 @charset "utf-8";
 
-body {
-  .shippori-mincho-regular {
-    font-family: "Shippori Mincho", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .tenor-sans-regular {
-    font-family: "Tenor Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .alex-brush-regular {
-    font-family: "Alex Brush", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
-
+/* カラーテンプレート */
+:root {
+  --brown: #3c2720;
+  --light-brown: #fffee0;
+  --white: #ffffff;
+  --beige: #f6f4ef;
+  --green: #1c3a27;
 }
+
+/* ページ全体に適用（英数字はTenor Sans、日本語はしっぽり明朝） */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* フォント */
+  font-family: "Tenor Sans", "Shippori Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.8;
+  /* 文字の横方向の余白 */
+  letter-spacing: 0.05em;
+  color: var(--brown);
+  background-color: var(--light-brown);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  /* 行の一番下に揃える */
+  vertical-align: bottom;
+  margin: 20px;
+}
+/* 飾り文字 */
+.alex {
+  font-family: "Alex Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* メニューバー */
+nav {
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    li {
+      font-weight: bold;
+
+      a {
+        /* opacityを0.5秒かける */
+        transition: opacity 0.5s;
+        &:hover {
+          color: #fc9724;
+          /* hover時に0.8薄く */
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 50px 20px;
+  /* 箱に入れる */
+  display: flex;
+  /* 横方向の配置 */
+  justify-content: space-between;
+  /* 縦方向の配置 */
+  align-items: center;
+}
+
+section {
+  padding: 80px 0;
+  /* リンク時にヘッダーに隠れないように余白をつける */
+    scroll-margin-top: 75px;
+  }
+
+h2 {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: var(--green);
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+h3 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--green);
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+
+/*===========================
+  headerここから
+  ===========================*/
+header {
+  background-color: var(--brown);
+  color: var(--white);
+  padding: 5px 50px;
+  display: flex;
+  /* ロゴとHBGボタンを横並び */
+  justify-content: space-between;
+  /* 両端ぞろえ */
+  align-items: center;
+  /* 縦位置そろえ　中央 */
+  position: fixed;
+  /* 固定配置 */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+
+  img {
+    width: 50px;
+    height: auto;
+  }
+
+  color: var(--white);
+}
+
+/*========================
+  headerここまで
+  ========================*/
+
+/*========================
+  mainここから
+  ========================*/
+
+  #home {
+    padding: 70px 0;
+}
+
+#firstview {
+    position: relative;
+    max-width: none;
+    padding: 0 20px;
+}
+
+#firstview > img {
+    width: 100%;
+    margin: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* 縦書きのキャッチコピー */
+#firstview h1 {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    writing-mode: vertical-rl;
+    font-size: 1.6rem;
+    line-height: 2.2;
+    letter-spacing: 0.2em;
+}
+
+/* 予約ボタン（画像重ね） */
+#firstview a[href="#reserve"] img {
+    position: absolute;
+    right: 5%;
+    bottom: 12%;
+    width: 200px;
+    border-radius: 10 ,%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* 8月の営業案内リンク */
+#firstview a[href="#calendar"] {
+    display: block;
+    text-align: right;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #333;
+    width: fit-content;
+    margin-left: auto;
+    padding-bottom: 2px;
+}
+
+#firstview a[href="#calendar"] span {
+    margin-left: 10px;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+  /* .home { 
+    margin: 0;
+    padding: 0;
+
+ .firstview {
+    background-image: url(../img/fv.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    img {
+      width: 50px;
+      height: 50px;
+      display: block;
+    }
+    h1 {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    writing-mode: vertical-rl;
+    font-size: 1.6rem;
+    line-height: 2.2;
+    letter-spacing: 0.2em;
+}
+  }
+/* } */
+main {
+
+  margin: 0 20px;
+
+  .concept {
+  }
+
+  .guide {
+  }
+
+  .grid {
+    width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    place-items: center;
+  }
+
+  .text-aside {
+    display: flex;
+    justify-content: center;
+  }
+
+  .drink-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+  }
+
+  .food-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+  }
+
+  .book-news {
+    padding: 20px 100px;
+
+    a {
+      display: block;
+      text-align: right;
+    }
+  }
+
+  .book-menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    box {
+      padding: 20px;
+    }
+  }
+
+
+
+  .news {
+    a {
+    display: block;
+    text-align: right;
+    }
+  }
+
+  .access {}
+
+  .reserve {}
+}
+
+/*===================
+  mainここまで
+  ===================*/
+
+/*===================
+  footerここから
+  ===================*/
+
+footer {
+  color: var(--white);
+  background-color: var(--brown);
+  padding: 5px 20px;
+  display: flex;
+  /* ロゴとHBGボタンを横並び */
+  justify-content: space-between;
+  /* 両端ぞろえ */
+  align-items: center;
+  /* 縦位置そろえ　中央 */
+}
+
+/*==================
+  footerここまで
+  ==================*/
