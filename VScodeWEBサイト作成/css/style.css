@@ -77,8 +77,8 @@ nav {
 
 section {
   padding: 80px 0;
-  /* リンク時にヘッダーに隠れないように余白をつける */
-    scroll-margin-top: 75px;
+  /* 上側のpaddingで固定ヘッダー分の余白を確保 */
+  scroll-margin-top: 0;
   }
 
 h2 {
@@ -114,6 +114,8 @@ header {
   align-items: center;
   /* 縦位置そろえ　中央 */
   position: fixed;
+  /* 値が大きいほど手前 */
+  z-index: 1000;
   /* 固定配置 */
   top: 0;
   left: 0;
@@ -132,12 +134,9 @@ header {
   headerここまで
   ========================*/
 
-/*========================
-  mainここから
-  ========================*/
-
-  #home {
-    padding: 70px 0;
+/* first view */
+#home {
+    padding: 10px 0;
 }
 
 #firstview {
@@ -165,12 +164,13 @@ header {
 }
 
 /* 予約ボタン（画像重ね） */
-#firstview a[href="#reserve"] img {
+#firstview a[href="#reserve"]
+img {
     position: absolute;
-    right: 5%;
-    bottom: 12%;
+    right: 3%;
+    bottom: 18%;
     width: 200px;
-    border-radius: 10 ,%;
+    border-radius: 10%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -179,8 +179,8 @@ header {
     display: block;
     text-align: right;
     margin-top: 15px;
-    font-size: 0.85rem;
-    border-bottom: 1px solid #333;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--brown);
     width: fit-content;
     margin-left: auto;
     padding-bottom: 2px;
@@ -188,47 +188,104 @@ header {
 
 #firstview a[href="#calendar"] span {
     margin-left: 10px;
-    font-size: 0.75rem;
-    color: #666;
+    font-size: 1.2rem;
+    color: var(--brown);
 }
 
-  /* .home { 
-    margin: 0;
-    padding: 0;
+/*========================
+  mainここから
+  ========================*/
 
- .firstview {
-    background-image: url(../img/fv.webp);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-
-    img {
-      width: 50px;
-      height: 50px;
-      display: block;
-    }
-    h1 {
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    writing-mode: vertical-rl;
-    font-size: 1.6rem;
-    line-height: 2.2;
-    letter-spacing: 0.2em;
-}
-  }
-/* } */
 main {
-
+/* メイン全体に適用 */
+/* 左右の余白 */
   margin: 0 20px;
 
-  .concept {
+/* コンセプト */
+  #concept {
+    .inner {
+      display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    }
+  }
+  .concept-text {
+    flex: 1;
+
+    h2 {
+    text-align: left;
+    margin-bottom: 30px;
+    }
+
+    p {
+    margin-bottom: 20px;
+    line-height: 2;
+    }
   }
 
-  .guide {
-  }
+.bold {
+    font-weight: bold;
+    margin-top: 30px;
+    }
 
+.concept-img {
+    flex: 1;
+}
+
+/* ご利用案内 */
+#guide > .inner:first-of-type {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+}
+
+#guide article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#guide article img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#guide article h3.alex {
+    font-size: 2.5rem;
+    line-height: 1;
+    display: inline-block;
+}
+
+#guide article p {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* 喫茶店・書店のレイアウト */
+#guide .inner:nth-of-type(2) {
+    display: flex;
+    justify-content: space-between;
+}
+
+#guide figure h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#guide figure img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+#guide figcaption {
+    line-height: 1.9;
+}
+
+/* menu */
   .grid {
     width: 900px;
     display: grid;
@@ -240,22 +297,30 @@ main {
   .text-aside {
     display: flex;
     justify-content: center;
+    padding-top: 40px;
   }
-
-  .drink-menu {
+  #menu {
+   p {
+    text-align: center;
+    font-size: 0.8em;
+   }
+  }
+  #drink-menu {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin: auto;
   }
 
-  .food-menu {
+  #food-menu {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin: auto;
   }
-
+/* 新刊情報 */
   .book-news {
     padding: 20px 100px;
 
@@ -270,23 +335,41 @@ main {
     align-items: center;
     gap: 40px;
 
-    box {
+    .box {
       padding: 20px;
+      font-size: 0.8em;
+      text-align: center;
     }
   }
 
-
-
-  .news {
-    a {
+/* お知らせ */
+#notice {
+  a {
+    padding: 20px 100px;
     display: block;
     text-align: right;
     }
   }
+.news-box {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-  .access {}
+.news-box ul li {
+    display: flex;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #888;
+    font-size: 0.85rem;
+}
 
-  .reserve {}
+.news-box time {
+    color: #888;
+    white-space: nowrap;
+}
+  #access {}
+
+  #reserve {}
 }
 
 /*===================
@@ -300,13 +383,14 @@ main {
 footer {
   color: var(--white);
   background-color: var(--brown);
+  height: 20em;
   padding: 5px 20px;
+  /* 横並び */
   display: flex;
-  /* ロゴとHBGボタンを横並び */
-  justify-content: space-between;
   /* 両端ぞろえ */
-  align-items: center;
+  justify-content: space-between;
   /* 縦位置そろえ　中央 */
+  align-items: center;
 }
 
 /*==================
