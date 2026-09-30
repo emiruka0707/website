@@ -23,7 +23,7 @@ body {
   /* 文字の横方向の余白 */
   letter-spacing: 0.05em;
   color: var(--brown);
-  background-color: var(--light-brown);
+  background-color: var(--beige);
 }
 
 img {
@@ -166,12 +166,23 @@ header {
 /* 予約ボタン（画像重ね） */
 #firstview a[href="#reserve"]
 img {
+  /* 親要素の配置から外す */
     position: absolute;
+    /* 右端からの位置 */
     right: 3%;
+    /* 下端からの位置 */
     bottom: 18%;
     width: 200px;
+    /* 画像の角を丸く */
     border-radius: 10%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    /* 変化を0.15秒かける、最初と最後はゆっくり */
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    /* &はimgの指定 */
+    &:hover {
+      /* 下に3px動かす */
+      transform: translateY(3px);
+    }
 }
 
 /* 8月の営業案内リンク */
@@ -184,6 +195,11 @@ img {
     width: fit-content;
     margin-left: auto;
     padding-bottom: 2px;
+
+    &:hover {
+      transform: translateY(3px);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
 }
 
 #firstview a[href="#calendar"] span {
@@ -250,6 +266,7 @@ main {
     width: 150px;
     height: auto;
     margin-bottom: 10px;
+    border-radius: 50%;
 }
 
 #guide article h3.alex {
@@ -263,7 +280,7 @@ main {
     text-align: center;
 }
 
-/* 喫茶店・書店のレイアウト */
+/* 喫茶店・書店 */
 #guide .inner:nth-of-type(2) {
     display: flex;
     justify-content: space-between;
@@ -285,7 +302,7 @@ main {
     line-height: 1.9;
 }
 
-/* menu */
+/* メニュー */
   .grid {
     width: 900px;
     display: grid;
@@ -326,7 +343,24 @@ main {
 
     a {
       display: block;
-      text-align: right;
+      /* 文字と余白にあった幅にする */
+      width: fit-content;
+      /* 左に余白を親の幅いっぱいに */
+      margin-left: auto;
+      padding: 10px 20px;
+      /* 角を4pxまるく */
+      border-radius: 4px;
+      background-color: var(--beige);
+      color: var(--brown);
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+      &:hover {
+        transform: translateY(3px);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+    }
     }
   }
 
@@ -344,10 +378,26 @@ main {
 
 /* お知らせ */
 #notice {
+   padding: 20px 100px;
   a {
-    padding: 20px 100px;
-    display: block;
-    text-align: right;
+      display: block;
+      /* 文字と余白にあった幅にする */
+      width: fit-content;
+      /* 左に余白を親の幅いっぱいに */
+      margin-left: auto;
+      padding: 10px 20px;
+      /* 角を4pxまるく */
+      border-radius: 4px;
+      background-color: var(--beige);
+      color: var(--brown);
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+      &:hover {
+        transform: translateY(3px);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
     }
   }
 .news-box {
@@ -367,10 +417,68 @@ main {
     color: #888;
     white-space: nowrap;
 }
-  #access {}
 
-  #reserve {}
-}
+/* 店舗情報 */
+  #access {
+
+    table td,th {
+    padding: 12px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+    width: 30%;
+    font-weight: normal;
+    color: #666;
+    }
+
+    .google-btn {
+  background-color: #f8f9fa;
+  border: 1px solid #666;
+  border-radius: 4px;
+  color: #666;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  height: 36px;
+  line-height: 27px;
+  min-width: 54px;
+  padding: 0 16px;
+  text-align: center;
+  user-select: none;
+
+  :hover {
+  background-color: #f8f9fa;
+  border-color: #dadce0;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #202124;
+  }
+  }
+  }
+
+/* 営業時間カレンダー */
+  #calendar {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+
+      a{
+        display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      }
+
+      article {
+       img {
+        width: 250px;
+        border: 1px solid var(--brown);
+        border-radius: 10%;
+       }
+
+       p {
+        text-align: center;
+       }
+      }
+  }
 
 /*===================
   mainここまで
@@ -383,15 +491,46 @@ main {
 footer {
   color: var(--white);
   background-color: var(--brown);
-  height: 20em;
-  padding: 5px 20px;
+  height: auto;
+  min-height: 20em;
+  padding: 5px 2px;
   /* 横並び */
   display: flex;
-  /* 両端ぞろえ */
-  justify-content: space-between;
+  /* 中央揃え */
+  justify-content: center;
   /* 縦位置そろえ　中央 */
   align-items: center;
+
+  section {
+    padding: 0;
+    margin: 0 60px;
+  }
+
+  .footer-access th,td {
+    padding: 0 5px;
+  }
+
+  .footer-logo,
+  .footer-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .footer-logo img,
+  .footer-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+  }
 }
+
+  #footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
 
 /*==================
   footerここまで
