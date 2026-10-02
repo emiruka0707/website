@@ -696,7 +696,6 @@ footer {
         margin-top: 15px;
     }
 
-
     /* --- 最新刊情報・お知らせ (#news) --- */
     .book-news .book-menu {
         grid-template-columns: repeat(2, 1fr);

@@ -14,8 +14,6 @@
     <!-- Google Fontsの読み込み -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Alex+Brush&family=Shippori+Mincho&family=Tenor+Sans&display=swap"
-        rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <title>トップページ | SHIORI Book cafe</title>
@@ -54,7 +52,10 @@
         <!--ファーストビュー-->
         <section id="home">
             <section id="firstview">
-                <img src="img/fv.webp" alt="コーヒーの画像">
+                <!-- PC用（769px以上） -->
+                <img id="src-pc" src="img/fv.webp" alt="コーヒーの画像">
+                <!-- スマホ用（768px以下） -->
+                <img id="src-sp" src="img/spfv-img.jpg" alt="" />
                 <h1>
                     <p>本をひらく。<br>
                         こころをひらく。
@@ -94,19 +95,19 @@
             <div class="inner">
                 <article>
                     <img src="img/guide-01.jpg" alt="本を読んでいるイラスト">
-                    <h3 class="alex">READ</h3><br>
+                    <h3 class="word">READ</h3>
                     <p>気になる一冊を手に取って<br>
                         店内でゆっくりと。</p>
                 </article>
                 <article>
                     <img src="img/guide-02.jpg" alt="本を買っているイラスト">
-                    <h3 class="alex">BUY</h3><br>
+                    <h3 class="word">BUY</h3>
                     <p>また読みたいと思った一冊は<br>
                         そのまま購入することもできます。</p>
                 </article>
                 <article>
                     <img src="img/guide-03.jpg" alt="席に飲み物を持っていくイラスト">
-                    <h3 class="alex">RESERVE</h3><br>
+                    <h3 class="word">RESERVE</h3>
                     <p>ご来店の時間に合わせて<br>
                         お席をあらかじめご予約いただけます。</p>
                 </article>
@@ -353,12 +354,14 @@
                 </nav>
             </section>
         </section>
-        <section class="footer-logo">
-            <img src="img/ShioriLogo.jpg" alt="SHIORI Book Cafe">
-        </section>
-        <section class="footer-icon">
-            <img src="img/Instagram LOGO=白.jpg" alt="Instagram icon">
-        </section>
+        <div class="footer-sp">
+            <section class="footer-logo">
+                <img src="img/ShioriLogo.jpg" alt="SHIORI Book Cafe">
+            </section>
+            <section class="footer-icon">
+                <img src="img/Instagram LOGO=白.jpg" alt="Instagram icon">
+            </section>
+        </div>
     </footer>
 </body>
 
